@@ -12,7 +12,7 @@ function get_vidID($content) {
 	// Samples:
     // https://youtu.be/95aM4OIPWGs
     // https://www.youtube.com/watch?v=95aM4OIPWGs&feature=youtu.be
-    $rem_parts = array('feature=youtu.be','https://www.youtube.com/','watch?v=','&#038;','&');
+    $rem_parts = array('feature=youtu.be','https://www.youtube.com/','watch?v=','&#038;','&','amp;');
 	
 	if( strpos( $content, 'v=' ) !== false) {
 		// URL has vars, strip them out
@@ -20,6 +20,7 @@ function get_vidID($content) {
 		    $content = str_replace($part,"",$content);
 		}
 		return $content;
+
 	} else {
 		// URL lacks vars
 		$url_parts = explode('/', $content);
